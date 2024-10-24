@@ -1,38 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
 .App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: #0D3E37;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+}
+
+.star {
+  color: #0DC36D;
+}
+
+.business-button {
+  background-color: #0DC36D;
+  border: none;
+  height: 50px;
+  width: 150px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Main Content */
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  background-color: #ffffff;
+  color: black;
+}
+
+.review-section {
+  max-width: 50%;
+  margin-right: 20px;
+}
+.review{
+  max-width: 50%;
+  margin-left: 200px;
+}
+
+.stars {
+  font-size: 50px;
+}
+
+h1 {
+  margin: 20px 0;
+}
+h3 {
+  font-size: 50px;
+  margin: 20px 0;
+}
+
+.login-button {
+  background-color: black;
+  color: white;
+  border: none;
+  height: 50px;
+  width: 100px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+/* Image Section */
+.image-section {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.image-section img {
+  max-width: 100%;
+  height: 100%;
+  margin-top: 20px;
+}
+
+/* Add width, shadow, centering for each section */
+.our-idea-section, .product-section, .ask-section, .review-section {
+  width: 80%;
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 50px 40px;
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Add hover effect for each section */
+.our-idea-section:hover, .product-section:hover, .ask-section:hover, .review-section:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Add spacing between the icon and title */
+.our-idea-section h2, .product-section h2, .ask-section h2, .review-section h2 {
+  margin-top: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Icon styles */
+.light-bulb-icon, .product-icon, .ask-icon, .review-icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+  color: #28a745;
+}
+
+/* Adjust paragraph text for better readability */
+.our-idea-section p, .product-section p, .ask-section p, .review-section p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* Responsive Adjustments */
+@media only screen and (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+    padding: 20px;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .review-section {
+    max-width: 100%;
+    margin-right: 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  .image-section {
+    justify-content: center;
+  }
+
+  .image-section img {
+    padding-left: 0;
+  }
+
+  .our-idea-section, .product-section, .ask-section, .review-section {
+    margin: 20px 10px;
+    padding: 30px 10px;
   }
 }

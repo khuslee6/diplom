@@ -1,21 +1,25 @@
 import React, { useRef } from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './App.css';
 import TundraImage from './image/Tundra.gif'; 
 import Image from './image/image2.gif'; 
 import Image2 from './image/beta.png'; 
+import Login from './Login';
 
 function App() {
   const imageSectionRef = useRef(null);
 
   return (
-    <div className="App">
-      <Header scrollToImageSection={() => imageSectionRef.current.scrollIntoView({ behavior: 'smooth' })} />
-      <MainContent imageSectionRef={imageSectionRef} />
-      <OurIdeaSection />
-      <ProductMenu imageSectionRef={imageSectionRef} />
-      <Ask />
-      <Review />
-    </div>
+    <Router>
+      <div className="App">
+        <Header scrollToImageSection={() => imageSectionRef.current.scrollIntoView({ behavior: 'smooth' })} />
+        
+        <Routes>
+          <Route path="/" element={<MainPage imageSectionRef={imageSectionRef} />} />
+          <Route path="/login" element={<Login/>} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
@@ -24,18 +28,32 @@ const Header = ({ scrollToImageSection }) => (
     <div className="logo">
       <span className="star" aria-label="Star">★</span> Tundra
     </div>
-    <button className="business-button" onClick={scrollToImageSection} aria-label="Scroll to Business Section">
-      For businesses
-    </button>
+    <div className="button-group">
+      <Link to="/login">
+        <button className="login-button" aria-label="Login">Login</button>
+      </Link>
+      <button className="business-button" onClick={scrollToImageSection} aria-label="Scroll to Business Section">
+        For businesses
+      </button>
+    </div>
   </header>
+);
+
+
+const MainPage = ({ imageSectionRef }) => (
+  <>
+    <MainContent imageSectionRef={imageSectionRef} />
+    <OurIdeaSection />
+    <ProductMenu imageSectionRef={imageSectionRef} />
+    <Ask />
+    <Review />
+  </>
 );
 
 const MainContent = ({ imageSectionRef }) => (
   <div className="main-content">
     <div className="review">
-      <div className="stars" aria-label="Five Star Review">★★★★★</div>
-      <h3>Start your review</h3>
-      <button className="login-button" aria-label="Login">Login</button>
+      {/* Add review content here if necessary */}
     </div>
     <div className="image-section" ref={imageSectionRef}>
       <img src={TundraImage} alt="Customer Support Illustration" />
@@ -55,7 +73,7 @@ const OurIdeaSection = () => (
   <InfoSection
     icon="💡"
     title="Бидний санаа"
-    description="Манай багын санаа бол хүмүүсийн цаг завыг хэмнэж хоол хүнс, хувцас, цахилгаан хэрэгсэл зэргийг найдвартай сэтгэл ханамжтай байдлаар сонгоход туслах апп болон юм."
+    description="Манай багын санаа бол хүмүүсийн цаг завыг хэмнэж хоол хүнс, хувцас, цахилгаан хэрэгсэл бидний өдөр тутамдаа хэрэглэдэг эд зүйл зэргийг найдвартай сэтгэл ханамжтай байдлаар сонгоход туслах апп төдийгүй бараагаа борлуулж буй борлуулагч нарт бараагаа борлуулахад туслалцаа үзүүлж хэрэглэгчийг татах юм."
   />
 );
 
@@ -70,51 +88,46 @@ const ProductMenu = ({ imageSectionRef }) => (
   </div>
 );
 
-const Ask = () => {
-  return (
-    <div className="ask-section">
-      <h2 className="faq-title">Frequently Asked Questions</h2>
-      <div className="faq-container">
-        <div className="faq-card">
-          <h3>What is the purpose of the product menu?</h3>
-          <p>
-            The product menu is designed to help users easily navigate and find
-            specific products to read reviews about, ensuring a seamless user experience.
-          </p>
-        </div>
-        <div className="faq-card">
-          <h3>How are products categorized?</h3>
-          <p>
-            Products are categorized into main groups such as Electronics, Home Appliances, 
-            and Fashion, with subcategories for more specific organization (e.g., smartphones, laptops, clothing).
-          </p>
-        </div>
-        <div className="faq-card">
-          <h3>How often are reviews updated?</h3>
-          <p>
-            Reviews are updated in real-time as users submit new feedback, ensuring that 
-            the information is current and relevant.
-          </p>
+const Ask = () => (
+  <div className="ask-section">
+    <h2 className="faq-title">Frequently Asked Questions</h2>
+    <div className="faq-container">
+      <div className="faq-card">
+        <h3>What is the purpose of the product menu?</h3>
+        <p>
+          The product menu is designed to help users easily navigate and find
+          specific products to read reviews about, ensuring a seamless user experience.
+        </p>
+      </div>
+      <div className="faq-card">
+        <h3>How are products categorized?</h3>
+        <p>
+          Products are categorized into main groups such as Electronics, Home Appliances, 
+          and Fashion, with subcategories for more specific organization (e.g., smartphones, laptops, clothing).
+        </p>
+      </div>
+      <div className="faq-card">
+        <h3>How often are reviews updated?</h3>
+        <p>
+          Reviews are updated in real-time as users submit new feedback, ensuring that 
+          the information is current and relevant.
+        </p>
+      </div>
+    </div>
+  </div>
+);
+
+const Review = ({ imageSectionRef }) => (
+  <div className="review-section">
+    <h2>Beta Test Reviews</h2>
+    <div className="review-grid">
+      <div className="review-card">
+        <div className="reviewer-img" ref={imageSectionRef}>
+          <img src={Image2} alt="Reviewer" className="review-image" />
         </div>
       </div>
     </div>
-  );
-};
-
-const Review = ({ imageSectionRef }) => {
-  return (
-    <div className="review-section">
-      <h2>Beta Test Reviews</h2>
-      <div className="review-grid">
-        <div className="review-card">
-          <div className="reviewer-img" ref={imageSectionRef}>
-            <img src={Image2} alt="Reviewer" className="review-image" />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
+  </div>
+);
 
 export default App;

@@ -18,33 +18,38 @@ body {
 
 /* Header */
 .header {
-  background-color: #0D3E37;
-  color: #FFFFFF;
-  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px 20px;
+  background-color: #004d40; 
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 40px;
+  color: white;
 }
 
 .star {
   color: #0DC36D;
+  font-size: 1.8em; /* Adjust size as needed */
+  line-height: 1; /* Keeps the star vertically centered */
 }
+  
+
 
 .business-button {
-  background-color: #0DC36D;
-  border: none;
-  height: 50px;
-  width: 150px;
-  padding: 10px 20px;
-  border-radius: 20px;
-  color: #FFFFFF;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
+    padding: 10px 20px;
+    background-color: #00c853; /* Green background for Business button */
+    border: none;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
 .business-button:hover,
 .business-button:focus {
@@ -58,8 +63,10 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 3rem;
-  background-color: #FFFFFF;
+  background-color: #00C16E;
   color: #000000;
+  width: 100vw;
+  height: 100vh;
 }
 .stars {
   font-size: 3rem;
@@ -75,37 +82,43 @@ h3 {
 }
 
 .login-button {
-  background-color: #000000;
-  color: #FFFFFF;
+  background-color: #0D3E37;
+  color: #ffffff;
+  font-weight: bold;
   border: none;
-  height: 50px;
-  width: 100px;
-  padding: 10px 20px;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  padding: 12px 20px;;
+  border-radius: none;
 }
 
-.login-button:hover,
+.login-button:hover {
+  text-decoration: underline;
+}
 .login-button:focus {
-  background-color: #333333;
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow on focus */
 }
 
 /* Image Section */
 .image-section {
-  flex-grow: 1;
+  flex: 1;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end; /* Center the image horizontally */
+  align-items: center; /* Center the image vertically */
 }
 
 .image-section img {
-  max-width: 100%;
-  max-height: 400px;
+  width: 200%; /* Set to 100% for maximum size within section */
+  max-height: 500%; /* Increase height to make it larger */
   height: auto;
   margin-top: 20px;
+
 }
 
 /* Section Styles */
+.button-group {
+  display: flex;
+  gap: 20px; /* Increased gap to add more space */
+}
 .our-idea-section,
 .product-section{
   width: 80%;
@@ -151,11 +164,13 @@ h3 {
 /* Responsive Adjustments */
 @media only screen and (max-width: 768px) {
   .main-content {
-    flex-direction: column;
-    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
   .image-section {
     justify-content: center;
+    
   }
 
   .our-idea-section,
@@ -221,9 +236,10 @@ h3 {
   }
 }
 .review-section {
-  padding: 50px;
+  padding: 20px;
   background-color: #eaf8f4;
   text-align: center;
+  flex: 1;
 }
 
 .review-section h2 {
@@ -254,6 +270,7 @@ h3 {
   height: auto;
   overflow: hidden; /* Ensure any overflow is hidden */
   margin: 0 auto; /* Center the image horizontally */
+
 }
 
 .review-image {

@@ -10,11 +10,11 @@ body {
 }
 
 .App {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
+  /* Remove background or borders */
+  background: none;
+  border: none;
 }
+
 
 /* Header */
 .header {
@@ -99,7 +99,13 @@ h3 {
 }
 
 /* Image Section */
-.image-section {
+.image-section1 {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* Center the image horizontally */
+  align-items: flex-start; /* Center the image vertically */
+}
+.image-section2 {
   flex: 1;
   display: flex;
   justify-content: flex-end; /* Center the image horizontally */
@@ -110,7 +116,6 @@ h3 {
   width: 200%; /* Set to 100% for maximum size within section */
   max-height: 500%; /* Increase height to make it larger */
   height: auto;
-  margin-top: 20px;
 
 }
 
@@ -119,17 +124,102 @@ h3 {
   display: flex;
   gap: 20px; /* Increased gap to add more space */
 }
-.our-idea-section,
-.product-section{
-  width: 80%;
+
+.our-idea-section {
+  width: 100%;
   max-width: 1000px;
-  margin: 3rem auto;
+  margin: 3rem auto 0; /* Top margin to add space above, zero margin below */
   padding: 2.5rem;
   background-color: #f9f9f9;
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
+}
+
+.product-section {
+  width: 90%;           /* Adjust width to take more space */
+  max-width: 1200px;    /* Increase max-width to make the container larger */
+  margin: 3rem auto;
+  padding: 3.5rem;      /* Increase padding to add more internal space */
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Slightly larger shadow for a more prominent effect */
+  text-align: center;
   transition: transform 0.3s ease;
+}
+
+.product-section:hover {
+  transform: scale(1.02);  /* Small scale on hover to emphasize */
+}
+
+.ticket-card {
+  width: 100%;
+  max-width: 400px;           /* Define the width of each ticket */
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.ticket-card:before, 
+.ticket-card:after {
+  content: '';
+  position: absolute;
+  width: 30px;               /* Width of the semi-circle cutout */
+  height: 30px;              /* Height of the semi-circle cutout */
+  background-color: #f9f9f9;
+  border-radius: 50%;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-card:before {
+  top: -15px;                /* Positioning the top cutout */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ticket-card:after {
+  bottom: -15px;             /* Positioning the bottom cutout */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ticket-card .content {
+  padding: 1rem;
+}
+
+.ticket-card .title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.ticket-card .description {
+  font-size: 1rem;
+  color: #666;
+}
+.ticket-board {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: flex-end; /* Align items to the right */
+  margin-top: 2rem;
+  direction: rtl; /* Makes text and items go from right to left */
+}
+.ticket-card {
+  width: 100%;
+  max-width: 250px;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+  direction: ltr; /* Reverses the text direction within the card to remain left-aligned */
 }
 
 .our-idea-section:hover,

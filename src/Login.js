@@ -11,7 +11,6 @@ function Login() {
     e.preventDefault();
     // Handle login logic here (e.g., call an API)
   };
-
   return (
     <div className="login-container">
       <form onSubmit={handleSubmit}>

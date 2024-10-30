@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './App.css';
 import TundraImage from './image/Tundra.gif'; 
-import Image from './image/image2.gif'; 
 import Image2 from './image/beta.png'; 
 import Login from './Login';
 
@@ -45,48 +44,65 @@ const MainPage = ({ imageSectionRef }) => (
     <MainContent imageSectionRef={imageSectionRef} />
     <OurIdeaSection />
     <ProductMenu imageSectionRef={imageSectionRef} />
+    <TicketSection />  {/* Add TicketSection here */}
     <Ask />
     <Review />
   </>
 );
+
 
 const MainContent = ({ imageSectionRef }) => (
   <div className="main-content">
     <div className="review">
       {/* Add review content here if necessary */}
     </div>
-    <div className="image-section" ref={imageSectionRef}>
+    <div className="image-section1" ref={imageSectionRef}>
       <img src={TundraImage} alt="Customer Support Illustration" />
     </div>
   </div>
 );
 
-const InfoSection = ({ icon, title, description }) => (
-  <div className="our-idea-section">
-    <div className="light-bulb-icon" aria-label="Idea Icon">{icon}</div>
-    <h2>{title}</h2>
-    <p>{description}</p>
-  </div>
-);
 
-const OurIdeaSection = () => (
-  <InfoSection
-    icon="💡"
-    title="Бидний санаа"
-    description="Манай багын санаа бол хүмүүсийн цаг завыг хэмнэж хоол хүнс, хувцас, цахилгаан хэрэгсэл бидний өдөр тутамдаа хэрэглэдэг эд зүйл зэргийг найдвартай сэтгэл ханамжтай байдлаар сонгоход туслах апп төдийгүй бараагаа борлуулж буй борлуулагч нарт бараагаа борлуулахад туслалцаа үзүүлж хэрэглэгчийг татах юм."
-  />
-);
 
 const ProductMenu = ({ imageSectionRef }) => (
   <div className="product-section">
     <div className="product-icon" aria-label="Product Menu Icon">🛒</div>
     <h2>Бүтээгдэхүүний цэс</h2>
-    <div className="image-section" ref={imageSectionRef}>
-      <img src={Image} alt="Product Menu Illustration" />
+    <div className="ticket-board">
+      <div className="ticket-card">
+        <div className="content">
+          <h2 className="title">1</h2>
+          <p className="description">1</p>
+        </div>
+      </div>
+      <div className="ticket-card">
+        <div className="content">
+          <h2 className="title">2</h2>
+          <p className="description"> 2.</p>
+        </div>
+      </div>
+      <div className="ticket-card">
+        <div className="content">
+          <h2 className="title"> 3</h2>
+          <p className="description">3.</p>
+        </div>
+      </div>
+      <div className="ticket-card">
+        <div className="content">
+          <h2 className="title"> 4</h2>
+          <p className="description"> 4.</p>
+        </div>
+      </div>
     </div>
-    <p>Энд та хамгийн хэрэгцээтэй бүтээгдэхүүнүүдийг нэг дороос харах боломжтой.</p>
+    <p>Эрэлттэй бараанууд.</p>
   </div>
 );
+
+const TicketSection = () => (
+  <div className="ticket-container">
+  </div>
+);
+
 
 const Ask = () => (
   <div className="ask-section">
@@ -128,6 +144,21 @@ const Review = ({ imageSectionRef }) => (
       </div>
     </div>
   </div>
+);
+const InfoSection = ({ icon, title, description }) => (
+  <div className="our-idea-section">
+    <div className="light-bulb-icon" aria-label="Idea Icon">{icon}</div>
+    <h2>{title}</h2>
+    <p>{description}</p>
+  </div>
+);
+
+const OurIdeaSection = () => (
+  <InfoSection
+    icon="💡"
+    title="Бидний санаа"
+    description="Манай багын санаа бол хүмүүсийн цаг завыг хэмнэж хоол хүнс, хувцас, цахилгаан хэрэгсэл бидний өдөр тутамдаа хэрэглэдэг эд зүйл зэргийг найдвартай сэтгэл ханамжтай байдлаар сонгоход туслах апп төдийгүй бараагаа борлуулж буй борлуулагч нарт бараагаа борлуулахад туслалцаа үзүүлж хэрэглэгчийг татах юм."
+  />
 );
 
 export default App;

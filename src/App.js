@@ -28,12 +28,12 @@ const Header = ({ scrollToImageSection }) => (
       <span className="star" aria-label="Star">★</span> Tundra
     </div>
     <div className="button-group">
-      <Link to="/login">
+      {/* <Link to="/login">
         <button className="login-button" aria-label="Login">Login</button>
       </Link>
       <button className="business-button" onClick={scrollToImageSection} aria-label="Scroll to Business Section">
         For businesses
-      </button>
+      </button> */}
     </div>
   </header>
 );
@@ -43,8 +43,8 @@ const MainPage = ({ imageSectionRef }) => (
   <>
     <MainContent imageSectionRef={imageSectionRef} />
     <OurIdeaSection />
-    <ProductMenu imageSectionRef={imageSectionRef} />
-    <TicketSection />  {/* Add TicketSection here */}
+    {/* <ProductMenu imageSectionRef={imageSectionRef} />
+    <TicketSection />  Add TicketSection here */}
     <Ask />
     <Review />
   </>
@@ -64,44 +64,44 @@ const MainContent = ({ imageSectionRef }) => (
 
 
 
-const ProductMenu = ({ imageSectionRef }) => (
-  <div className="product-section">
-    <div className="product-icon" aria-label="Product Menu Icon">🛒</div>
-    <h2>Бүтээгдэхүүний цэс</h2>
-    <div className="ticket-board">
-      <div className="ticket-card">
-        <div className="content">
-          <h2 className="title">1</h2>
-          <p className="description">1</p>
-        </div>
-      </div>
-      <div className="ticket-card">
-        <div className="content">
-          <h2 className="title">2</h2>
-          <p className="description"> 2.</p>
-        </div>
-      </div>
-      <div className="ticket-card">
-        <div className="content">
-          <h2 className="title"> 3</h2>
-          <p className="description">3.</p>
-        </div>
-      </div>
-      <div className="ticket-card">
-        <div className="content">
-          <h2 className="title"> 4</h2>
-          <p className="description"> 4.</p>
-        </div>
-      </div>
-    </div>
-    <p>Эрэлттэй бараанууд.</p>
-  </div>
-);
+// const ProductMenu = ({ imageSectionRef }) => (
+//   <div className="product-section">
+//     <div className="product-icon" aria-label="Product Menu Icon">🛒</div>
+//     <h2>Бүтээгдэхүүний цэс</h2>
+//     <div className="ticket-board">
+//       <div className="ticket-card">
+//         <div className="content">
+//           <h2 className="title">1</h2>
+//           <p className="description">1</p>
+//         </div>
+//       </div>
+//       <div className="ticket-card">
+//         <div className="content">
+//           <h2 className="title">2</h2>
+//           <p className="description"> 2.</p>
+//         </div>
+//       </div>
+//       <div className="ticket-card">
+//         <div className="content">
+//           <h2 className="title"> 3</h2>
+//           <p className="description">3.</p>
+//         </div>
+//       </div>
+//       <div className="ticket-card">
+//         <div className="content">
+//           <h2 className="title"> 4</h2>
+//           <p className="description"> 4.</p>
+//         </div>
+//       </div>
+//     </div>
+//     <p>Эрэлттэй бараанууд.</p>
+//   </div>
+// );
 
-const TicketSection = () => (
-  <div className="ticket-container">
-  </div>
-);
+// const TicketSection = () => (
+//   <div className="ticket-container">
+//   </div>
+// );
 
 
 const Ask = () => (
